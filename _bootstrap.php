@@ -33,31 +33,33 @@ $merchantIdPrefix = substr($merchantId, 0, 4);
 // get regional url prefix
 $prefix = 'mtf';
 if (strcasecmp($region, "ASIA_PACIFIC") == 0) {
-    $prefix = 'ap';
+    $prefix = 'ap.';
 } else if (strcasecmp($region, "EUROPE") == 0) {
-    $prefix = 'eu';
+    $prefix = 'eu.';
 } else if (strcasecmp($region, "NORTH_AMERICA") == 0) {
-    $prefix = 'na';
+    $prefix = 'na.';
 } else if (strcasecmp($region, "INDIA") == 0) {
-    $prefix = 'in';
+    $prefix = 'in.';
 } else if (strcasecmp($region, "CHINA") == 0) {
-    $prefix = 'cn';
+    $prefix = 'cn.';
 } else if (strcasecmp($region, "MTF") == 0) {
-    $prefix = 'mtf';
+    $prefix = 'mtf.';
 } else if (strcasecmp($region, "QA01") == 0) {
-    $prefix = 'qa01';
+    $prefix = 'qa01.';
 } else if (strcasecmp($region, "QA02") == 0) {
-    $prefix = 'qa02';
+    $prefix = 'qa02.';
 } else if (strcasecmp($region, "QA03") == 0) {
-    $prefix = 'qa03';
+    $prefix = 'qa03.';
 } else if (strcasecmp($region, "QA04") == 0) {
-    $prefix = 'qa04';
+    $prefix = 'qa04.';
 } else if (strcasecmp($region, "QA05") == 0) {
-    $prefix = 'qa05';
+    $prefix = 'qa05.';
 } else if (strcasecmp($region, "QA06") == 0) {
-    $prefix = 'qa06';
+    $prefix = 'qa06.';
 } else if (strcasecmp($region, "PEAT") == 0) {
-    $prefix = 'perf';
+    $prefix = 'perf.';
+}  else if (strcasecmp($region, "TEST") == 0) {
+    $prefix = 'test-';
 } else {
     error(500, "Invalid region provided. Valid values include ASIA_PACIFIC, EUROPE, NORTH_AMERICA, INDIA, MTF");
 }
@@ -68,7 +70,7 @@ if (intval($apiVersion) < 39) {
 }
 
 // build api endpoint url
-$gatewayUrl = "https://${prefix}.gateway.mastercard.com/api/rest/version/${apiVersion}/merchant/${merchantId}";
+$gatewayUrl = "https://${prefix}gateway.mastercard.com/api/rest/version/${apiVersion}/merchant/${merchantId}";
 
 // parse query string
 $query = array();
